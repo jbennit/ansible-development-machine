@@ -14,5 +14,12 @@
 - name: install docker
   apt: name=lxc-docker state=latest
 
+- get_url: url=https://github.com/docker/compose/releases/download/{{ version.docker_compose }}/docker-compose-Linux-x86_64
+           dest=/usr/local/bin/docker-compose
+           owner=root
+           group=root
+           mode=755
+  ignore_errors: yes
+
 - name: ensure docker is running and starts on bootup
   service: name=docker enabled=yes state=started

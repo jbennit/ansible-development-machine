@@ -1,0 +1,5 @@
+---
+
+# Download and install programs
+- include: common.yml tags=common
+- include: docker.yml tags=docker
